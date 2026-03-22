@@ -67,3 +67,24 @@ class ChatResponse(BaseModel):
     role: str
     content: str
     tool_calls: List[Dict[str, Any]] = []
+
+
+class UpfolioMatchRequest(BaseModel):
+    skills: str
+    interests: str
+    year: str
+
+
+class UpfolioMatchItem(BaseModel):
+    title: str
+    score: int
+    explanation: str
+    platform: str = "unstop"
+    platform_label: str = "Unstop"
+    url: str
+
+
+class UpfolioMatchResponse(BaseModel):
+    matches: List[UpfolioMatchItem]
+    source: str = "fallback"
+    message: Optional[str] = None

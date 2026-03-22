@@ -38,6 +38,7 @@ const navItems = [
   { href: "/admin/audit", label: "Audit Logs", icon: AuditIcon },
   { href: "/ai/policies", label: "AI Policies", icon: PolicyIcon },
   { href: "/ai/insights", label: "AI Insights", icon: InsightsIcon },
+  { href: "/upfolio", label: "Upfolio", icon: UpfolioIcon },
   { href: "/settings", label: "Settings", icon: SettingsIcon },
 ];
 
@@ -77,6 +78,14 @@ function InsightsIcon({ className }: { className?: string }) {
   return (
     <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
       <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+    </svg>
+  );
+}
+
+function UpfolioIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M7 8h10M7 12h7m-7 4h6M5 5h14a2 2 0 012 2v10a2 2 0 01-2 2H9l-4 3V7a2 2 0 012-2z" />
     </svg>
   );
 }

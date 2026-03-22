@@ -13,10 +13,13 @@ from app.schemas.ai_schema import (
     InsightResponse,
     ChatRequest,
     ChatResponse,
+    UpfolioMatchRequest,
+    UpfolioMatchResponse,
 )
 from app.services.ai.policy import policy_service
 from app.services.ai.insights import insights_service
 from app.services.ai.chat import chat_service
+from app.services.ai.upfolio import upfolio_service, OPPORTUNITY_SEEDS
 
 router = APIRouter(prefix="/ai", tags=["ai"])
 
@@ -167,3 +170,18 @@ async def chat(
     )
 
     return response
+
+
+@router.post("/match", response_model=UpfolioMatchResponse)
+async def match_opportunities(request: UpfolioMatchRequest):
+    """Match user profile to opportunities across major student platforms (search/discover links)."""
+    user_profile = {
+        "skills": [item.strip() for item in request.skills.split(",") if item.strip()],
+        "interests": [item.strip() for item in request.interests.split(",") if item.strip()],
+        "year": request.year,
+    }
+
+    return await upfolio_service.match_user_to_opportunities(
+        user=user_profile,
+        opportunities=list(OPPORTUNITY_SEEDS),
+    )

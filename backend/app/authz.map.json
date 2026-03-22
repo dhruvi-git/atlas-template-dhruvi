@@ -61,5 +61,8 @@
   },
   "/api/ai/chat": {
     "POST": ["ADMIN", "DEVELOPER", "USER"]
+  },
+  "/api/ai/match": {
+    "POST": ["ADMIN", "DEVELOPER", "USER"]
   }
 }
