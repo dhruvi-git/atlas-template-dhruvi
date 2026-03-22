@@ -1,10 +1,35 @@
-# Atlas AI Command Center - Full-Stack Template
+# 🎯 Upfolio - AI-Powered Opportunity Discovery & Management
 
-A production-ready template for building modern, AI-first web applications with Python/FastAPI backend, Next.js/React frontend, Keycloak for identity management, and integrated AI features (Gemini).
+A production-ready, full-stack AI platform that helps users discover, track, and manage professional opportunities (internships, hackathons, scholarships) with intelligent recommendations, comprehensive audit logging, and a powerful policy engine.
+
+**Repository**: [github.com/dhruvi-git/atlas-template-dhruvi](https://github.com/dhruvi-git/atlas-template-dhruvi)
+
+Built on the Atlas AI Command Center framework with Python/FastAPI backend, Next.js/React frontend, Keycloak for identity management, and Google Gemini AI integration.
 
 ---
 
-## 🚨 For New Client Projects - Read This First!
+## � Documentation
+
+**For comprehensive documentation about Upfolio features, architecture, deployment, and API reference**, see [README_UPFOLIO.md](README_UPFOLIO.md) ⭐
+
+This README provides the setup guide. For complete feature details, see the full documentation.
+
+---
+
+## 🎯 What is Upfolio?
+
+Upfolio is an AI-first platform that serves as your personal **"opportunity control center"**:
+
+✅ **Discover Opportunities** - Search across Unstop, Devfolio, LinkedIn, Internshala, Hack2Skill  
+✅ **AI Policies** - Create natural language rules to automatically filter opportunities  
+✅ **Smart Insights** - Get AI-powered recommendations based on your profile  
+✅ **Portfolio Tracking** - Track your applications and progress  
+✅ **Secure & Audited** - Complete audit trail, RBAC, comprehensive logging  
+✅ **AI Assistant** - 24/7 chatbot for questions and support
+
+---
+
+## 🚨 For New Users - Read This First!
 
 When starting a new project from this template, understand what's real functionality vs demo/placeholder:
 
