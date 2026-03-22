@@ -1,413 +1,438 @@
 # 🎯 Upfolio - AI-Powered Opportunity Discovery & Management
 
-A production-ready, full-stack AI platform that helps users discover, track, and manage professional opportunities (internships, hackathons, scholarships) with intelligent recommendations, comprehensive audit logging, and a powerful policy engine.
+An intelligent agentic platform that uses AI to help you discover, filter, and manage professional opportunities across multiple platforms. Upfolio combines smart search, natural language policies, and AI-powered insights to be your personal opportunity management assistant.
 
-**Repository**: [github.com/dhruvi-git/atlas-template-dhruvi](https://github.com/dhruvi-git/atlas-template-dhruvi)
-
-Built on the Atlas AI Command Center framework with Python/FastAPI backend, Next.js/React frontend, Keycloak for identity management, and Google Gemini AI integration.
+**GitHub Repository**: [github.com/dhruvi-git/atlas-template-dhruvi](https://github.com/dhruvi-git/atlas-template-dhruvi)
 
 ---
 
-## � Documentation
-
-**For comprehensive documentation about Upfolio features, architecture, deployment, and API reference**, see [README_UPFOLIO.md](README_UPFOLIO.md) ⭐
-
-This README provides the setup guide. For complete feature details, see the full documentation.
-
----
-
-## 🎯 What is Upfolio?
-
-Upfolio is an AI-first platform that serves as your personal **"opportunity control center"**:
-
-✅ **Discover Opportunities** - Search across Unstop, Devfolio, LinkedIn, Internshala, Hack2Skill  
-✅ **AI Policies** - Create natural language rules to automatically filter opportunities  
-✅ **Smart Insights** - Get AI-powered recommendations based on your profile  
-✅ **Portfolio Tracking** - Track your applications and progress  
-✅ **Secure & Audited** - Complete audit trail, RBAC, comprehensive logging  
-✅ **AI Assistant** - 24/7 chatbot for questions and support
+## 📋 Table of Contents
+- [Overview](#overview)
+- [Key Features](#key-features)
+- [How It Works](#how-it-works)
+- [Tech Stack](#tech-stack)
+- [Quick Start](#quick-start)
+- [Configuration](#configuration)
+- [Usage](#usage)
+- [Full Documentation](#full-documentation)
 
 ---
 
-## 🚨 For New Users - Read This First!
+## 🌟 Overview
 
-When starting a new project from this template, understand what's real functionality vs demo/placeholder:
+Upfolio is an **agentic AI system** that revolutionizes how you discover professional opportunities. Instead of manually searching multiple platforms, Upfolio:
 
-### What's Real (Production-Ready)
+1. **Searches automatically** across Unstop, Devfolio, LinkedIn, Internshala, and Hack2Skill
+2. **Filters intelligently** using AI policies (write rules in plain English!)
+3. **Recommends proactively** based on your profile and interests
+4. **Tracks everything** with a complete audit trail
+5. **Assists conversationally** via an AI chatbot available everywhere
 
-| Component | Description |
-|-----------|-------------|
-| **Authentication** | Credentials-based login with NextAuth.js; optional OAuth2/OIDC with Keycloak |
-| **Authorization Engine** | JSON-based RBAC via `authz.map.json` and `authz.py` |
-| **User Registration** | Self-registration with domain-based auto-approval or admin approval |
-| **Admin User Management** | `/admin/users` - Approve/reject pending users |
-| **Audit Logging** | `/admin/audit` - Automatic request logging + custom events with export |
-| **AI Policies** | `/ai/policies` - Natural language rule engine with DSL translation |
-| **AI Insights** | `/ai/insights` - Proactive analysis and recommendations |
-| **AI Manager** | Global chatbot modal - Agentic assistant with tool execution |
-| **Database Setup** | PostgreSQL with Alembic migrations |
-| **API Structure** | FastAPI with dependency injection |
-| **Session Management** | NextAuth.js with JWT token handling |
-| **Agents & Telemetry** | Agent registry and telemetry API endpoints |
-
-### What's Demo (Replace for Production)
-
-| Page | Location | Action Required |
-|------|----------|-----------------|
-| **Dashboard** | `/` (page.tsx) | Replace mock stats with real data |
-| **Settings** | `/settings` | Implement real settings functionality |
-| **AI Manager tools** | Backend `services/ai/tools.py` | Wire to real system APIs |
+Perfect for students and professionals looking for internships, hackathons, scholarships, fellowships, and other career opportunities.
 
 ---
 
-## ✨ Core Features
+## ✨ Key Features
 
-- **Production-Ready Stack**: FastAPI, Next.js, PostgreSQL, and Keycloak (optional)
-- **AI Integration**: Policies, Insights, and AI Manager with Gemini
-- **Pluggable Authorization Engine**: Endpoint-level access control in JSON
-- **User Self-Registration**: With domain-based auto-approval or admin approval
-- **Comprehensive Audit Logging**: Automatic request logging + custom business events
-- **Fully Containerized**: Docker and Docker Compose
-- **Cloud-Ready**: Structure supports deployment to Google Cloud Run with Cloud SQL
+### 🔍 **Intelligent Opportunity Discovery**
+- **Multi-Platform Search**: Search across 5+ platforms simultaneously
+- **Smart Matching**: AI understands your intent (e.g., "Python internship in tech companies")
+- **One-Click Links**: Direct access to opportunities on original platforms
+- **Curated Searches**: Pre-built templates for popular opportunities
+
+### 📋 **AI Policies - The Game Changer**
+Create natural language rules that automatically filter opportunities:
+- Write rules in plain English: *"Only show hackathons from verified hosts"*
+- AI automatically translates to executable logic
+- Apply multiple policies with priority levels
+- Update policies on the fly without code changes
+
+**Examples**:
+- "Show internships with salary ≥ ₹500/day"
+- "Filter hackathons only from Devfolio and Unstop"
+- "Recommend only roles matching Python and Web Development skills"
+
+### 🤖 **AI Manager Chatbot**
+- **Global Assistant**: Available on every page via 🤖 button
+- **Context-Aware**: Understands what you're doing
+- **Function Calling**: Execute commands like searching logs, fetching statistics
+- **Natural Conversation**: Ask questions naturally, get answers instantly
+
+**Ask It**: 
+- "How many opportunities have I saved?"
+- "Show me critical insights"
+- "What was my activity last week?"
+
+### 💡 **AI Insights & Recommendations**
+- **Smart Analysis**: AI analyzes your data and behavior
+- **Actionable Recommendations**: Severity levels (Critical, Warning, Suggestion)
+- **Impact Estimates**: Understand potential impact of each insight
+- **Proactive Suggestions**: Get recommendations before you ask
+
+### 📊 **Complete Audit & Analytics**
+- **Automatic Logging**: Every action is logged with full metadata
+- **Search & Export**: Filter logs and export as JSON
+- **Compliance Ready**: Track all activities for transparency
+- **Custom Events**: Log business events (policy created, opportunity saved, etc.)
+
+### 📱 **Admin Dashboard**
+- **User Management**: Approve/reject user registrations
+- **Audit Viewer**: Search and export activity logs
+- **Dashboard Analytics**: View system statistics and metrics
 
 ---
 
-## 💻 Technology Stack
+## 🧠 How It Works
 
-| Area | Technology | Purpose |
-|------|------------|---------|
-| Backend | Python 3.11 + FastAPI | High-performance API |
-| Frontend | Next.js 14+ + React + TypeScript | Modern UI framework |
-| AI | Gemini API | Policies, Insights, Chatbot |
-| Identity | Keycloak 24 (optional) | Centralized IAM; local JWT also supported |
-| Database | PostgreSQL 15 | Application data |
-| DevOps | Docker + Docker Compose | Containerization |
+```
+User Input (Search Query)
+     ↓
+AI Agent Analysis (Understand intent)
+     ↓
+Search Across Platforms (Unstop, Devfolio, LinkedIn, etc.)
+     ↓
+Apply Policies (Filter using AI-generated rules)
+     ↓
+Rank & Recommend (Sort by relevance)
+     ↓
+Display Results + Insights
+```
+
+### Example Flow:
+```
+User: "Find me Python hackathons happening next month"
+      ↓
+Upfolio AI: Understands intent, searches 5 platforms simultaneously
+      ↓
+Applies Policies: Only show verified hackathons, exclude past dates
+      ↓
+Generates Insights: "3 new hackathons match your skills"
+      ↓
+Shows Results: Direct links to opportunities with AI-generated summaries
+```
+
+---
+
+## 💻 Tech Stack
+
+| Component | Technology |
+|-----------|-----------|
+| **Backend** | Python 3.11 + FastAPI |
+| **Frontend** | Next.js 14 + React 18 + TypeScript |
+| **AI Engine** | Google Gemini 2.0-flash |
+| **Database** | PostgreSQL 15 |
+| **Auth** | NextAuth.js + JWT |
+| **Styling** | Tailwind CSS |
+| **Deployment** | Docker + Docker Compose |
 
 ---
 
 ## 🚀 Quick Start
 
-Get the Atlas AI Command Center running locally in under 5 minutes.
+Get Upfolio running locally in 5 minutes.
 
 ### Prerequisites
 
-| Tool | Required | Purpose |
-|------|----------|---------|
-| Docker Desktop | ✅ Yes | Runs all services |
-| make | ✅ Yes | Dev commands (built-in on macOS/Linux; use WSL or Git Bash on Windows) |
-| Google Cloud SDK | ❌ Optional | For cloud deployment |
+- **Docker Desktop** - [Download](https://docker.com)
+- **Git** - [Download](https://git-scm.com)
+- **Gemini API Key** (optional) - [Get Free Key](https://aistudio.google.com/apikey)
 
-### Step 1: Clone & Setup
+### Step 1: Clone Repository
 
 ```bash
-git clone https://github.com/your-org/your-repo.git
-cd your-repo
+git clone https://github.com/dhruvi-git/atlas-template-dhruvi.git
+cd atlas-template-dhruvi
+```
 
-# Create your environment file
+### Step 2: Setup Environment
+
+```bash
+# Copy environment template
 cp .env.example .env
-```
 
-### Step 2: Configure Secrets
-
-Edit `.env` and set these required values:
-
-```bash
-# REQUIRED: Generate and paste this secret
+# Generate secrets (macOS/Linux)
 openssl rand -base64 32
-# Copy the output and set: NEXTAUTH_SECRET=<paste-here>
-# Also set: SECRET_KEY=<paste-here> (can be same or different)
+
+# On Windows PowerShell, use this value for both:
+# (or any 32+ character random string)
 ```
 
-**OPTIONAL but RECOMMENDED**: Enable AI features
+### Step 3: Configure Secrets
 
-- Get your API key from: https://aistudio.google.com/apikey  
-- Set in `.env`: `GEMINI_API_KEY=your-api-key-here`
-
-### Step 3: Start Everything
+Edit `.env` and set:
 
 ```bash
-make up
+# Required: Paste the generated secret
+SECRET_KEY=<your-generated-secret>
+NEXTAUTH_SECRET=<your-generated-secret>
+
+# Optional but recommended: Enable AI features
+GEMINI_API_KEY=<your-api-key>
+
+# Email domains to auto-approve
+APPROVED_EMAIL_DOMAINS=example.com,yourschool.edu
 ```
 
-This starts PostgreSQL, Keycloak (optional), Backend (FastAPI), and Frontend (Next.js).
+### Step 4: Start Services
 
-### Step 4: Access the App
+```bash
+docker-compose up -d --build
+```
 
-| Service | URL | Description |
-|---------|-----|-------------|
-| 🌐 Frontend | http://localhost:3000 | Main application |
-| 📡 Backend API | http://localhost:8000/docs | Swagger API docs |
-| 🔐 Keycloak Admin | http://localhost:8080 | Identity management (if enabled) |
+Wait 30-60 seconds for services to start.
 
-**Default admin login** (after running migrations):
+### Step 5: Access Application
 
-- Email: `admin@atlasuniversity.edu.in`  
-- Password: `admin123`
+| Service | URL |
+|---------|-----|
+| **Upfolio Frontend** | http://localhost:3000 |
+| **API Documentation** | http://localhost:8000/docs |
+| **Database Admin** | (via Docker) |
+
+### Step 6: Default Login
+
+```
+Email: admin@atlasuniversity.edu.in
+Password: admin123
+```
+
+---
+
+## ⚙️ Configuration
+
+### Essential Environment Variables
+
+```bash
+# API Configuration
+APP_NAME=Upfolio
+APP_ENV=development
+DEBUG=False
+
+# Database
+DATABASE_URL=postgresql+asyncpg://atlas:atlas_secret@db:5432/atlas_db
+
+# Security
+SECRET_KEY=<generate-with-openssl>
+NEXTAUTH_SECRET=<same-or-different>
+ALGORITHM=HS256
+
+# AI Features
+GEMINI_API_KEY=<your-api-key>         # Required for policies, insights, chat
+AI_MODEL=gemini-2.0-flash-exp
+
+# Authentication
+CORS_ORIGINS=http://localhost:3000
+APPROVED_EMAIL_DOMAINS=example.com
+
+# Frontend
+NEXTAUTH_URL=http://localhost:3000
+```
+
+### Production Checklist
+
+- ✅ Generate new `SECRET_KEY` and `NEXTAUTH_SECRET`
+- ✅ Change database password
+- ✅ Set `APP_ENV=production`
+- ✅ Update `CORS_ORIGINS` with production domain
+- ✅ Configure `GEMINI_API_KEY`
+- ✅ Enable HTTPS
+- ✅ Setup database backups
+
+---
+
+## 📖 Usage
+
+### 1. Search for Opportunities
+
+1. Navigate to **Upfolio** from sidebar
+2. Enter search query: "Python internship", "hackathon", etc.
+3. Select platforms to search
+4. View results with direct links
+
+### 2. Create Policies
+
+1. Go to **AI → Policies**
+2. Click "New Policy"
+3. Write in plain English: *"Only show verified opportunities"*
+4. AI translates to executable rules
+5. Set priority and activate
+
+### 3. Get AI Insights
+
+1. Navigate to **AI → Insights**
+2. View AI-generated recommendations
+3. Check severity levels (Critical, Warning, Suggestion)
+4. See impact estimates
+
+### 4. Chat with AI Assistant
+
+1. Click **🤖** button (top right)
+2. Ask questions naturally
+3. Get context-aware answers
+4. AI can search logs, fetch stats, etc.
+
+### 5. Admin Features
+
+**User Management** (`/admin/users`):
+- Approve/reject pending users
+- View user details
+- Delete accounts
+
+**Audit Logs** (`/admin/audit`):
+- View all system activity
+- Filter by timestamp, user, action
+- Export logs as JSON
+
+---
+
+## 📚 Full Documentation
+
+For comprehensive documentation including:
+- Complete API reference
+- System architecture
+- Deployment guides (Cloud Run, Kubernetes)
+- Development setup
+- Database migrations
+- Contributing guidelines
+
+See [README_UPFOLIO.md](README_UPFOLIO.md) ⭐
+
+---
+
+## 🔌 API Endpoints
+
+### Opportunity Discovery
+```
+GET  /api/ai/upfolio/search      - Search opportunities
+POST /api/ai/upfolio/match       - Match by profile
+```
+
+### AI Policies
+```
+GET  /api/ai/policies            - List policies
+POST /api/ai/policies            - Create policy
+PUT  /api/ai/policies/{id}       - Update policy
+POST /api/ai/policies/translate  - Convert NLP to DSL
+```
+
+### AI Chat & Insights
+```
+POST /api/ai/chat                - Chat with AI
+GET  /api/ai/insights            - Get insights
+POST /api/ai/insights/generate   - Generate new insights
+```
+
+### Admin
+```
+GET  /api/admin/users            - List users
+POST /api/admin/users/{id}/approve - Approve registration
+GET  /api/admin/audit            - View audit logs
+```
+
+See [API Docs](http://localhost:8000/docs) for full details.
+
+---
+
+## 🐳 Docker Commands
+
+```bash
+# Start all services
+docker-compose up -d --build
+
+# View logs
+docker-compose logs -f backend
+docker-compose logs -f frontend
+
+# Stop services
+docker-compose down
+
+# Remove all data
+docker-compose down -v
+```
+
+---
+
+## 🛠️ Development
+
+### Local Setup (Without Docker)
+
+```bash
+# Backend
+cd backend
+pip install -r requirements.txt
+python -m uvicorn app.main:app --reload
+
+# Frontend (new terminal)
+cd frontend
+npm install
+npm run dev
+```
+
+### Database Migrations
+
+```bash
+# Create migration
+alembic revision --autogenerate -m "description"
+
+# Apply migrations
+alembic upgrade head
+```
 
 ### Useful Commands
 
-| Command | Description |
-|---------|-------------|
-| `make up` | Start all services |
-| `make down` | Stop all services |
-| `make logs-be` | View backend logs |
-| `make logs-fe` | View frontend logs |
-| `make restart-be` | Restart backend only |
-| `make migrate-up` | Apply database migrations |
-| `make migrate-history` | View migration history |
-
-### Troubleshooting Quick Start
-
-| Issue | Solution |
-|-------|----------|
-| Port 3000/8000 in use | Stop other services or change ports in `.env` |
-| Login returns 401 | Ensure NEXTAUTH_SECRET is set; clear cookies or use incognito |
-| AI features not working | Check GEMINI_API_KEY is set in `.env` |
-| Containers won't start | Run `docker compose down -v` then `make up` |
-
----
-
-## 📂 Project Structure
-
-```
-.
-├── backend/                    # FastAPI Backend
-│   ├── app/
-│   │   ├── main.py             # API routes and app bootstrap
-│   │   ├── authz.map.json     # Authorization rules (EDIT THIS)
-│   │   ├── public.map.json    # Public endpoints list
-│   │   ├── core/
-│   │   │   ├── authz.py       # Authorization engine
-│   │   │   ├── config.py      # Settings
-│   │   │   ├── database.py    # DB connection
-│   │   │   └── security.py    # JWT / password hashing
-│   │   ├── api/
-│   │   │   ├── auth.py        # Login / register
-│   │   │   ├── users.py       # /users/me
-│   │   │   ├── admin.py       # Admin users & audit
-│   │   │   ├── ai.py          # AI endpoints (policies, insights, chat)
-│   │   │   ├── agents.py      # Agent registry
-│   │   │   └── telemetry.py   # Telemetry
-│   │   ├── models/            # SQLAlchemy ORM models
-│   │   ├── schemas/           # Pydantic schemas
-│   │   ├── services/
-│   │   │   ├── audit.py       # Audit logging service
-│   │   │   ├── keycloak.py    # Keycloak JWT validation
-│   │   │   ├── keycloak_admin.py  # Keycloak Admin API
-│   │   │   └── ai/            # AI services
-│   │   │       ├── chat.py    # AI Manager chat logic
-│   │   │       ├── gemini.py  # Gemini API client
-│   │   │       ├── policy.py  # Policy translation
-│   │   │       ├── insights.py # Insights generation
-│   │   │       └── tools.py   # AI function tools
-│   │   └── middleware/
-│   │       └── audit.py       # Request audit middleware
-│   ├── alembic/               # Database migrations
-│   ├── Dockerfile
-│   └── requirements.txt
-│
-├── frontend/                  # Next.js Frontend
-│   └── src/
-│       ├── app/
-│       │   ├── (dashboard)/    # Protected dashboard pages
-│       │   ├── admin/         # Admin pages (users, audit)
-│       │   ├── ai/            # AI pages (policies, insights)
-│       │   └── auth/          # Login, register, error
-│       ├── components/
-│       │   ├── ai/            # AIManager chatbot
-│       │   ├── auth/          # AuthProvider
-│       │   └── layout/        # Header, Sidebar
-│       ├── lib/               # api.ts, store, utils
-│       ├── middleware.ts     # Auth middleware
-│       └── types/            # next-auth.d.ts
-│
-├── docker-compose.yml         # Local development
-├── Makefile                   # Dev commands
-├── .env.example               # Environment template
-└── README.md                  # This file
-```
-
----
-
-## 📝 Environment Variables
-
-The `.env` file is organized into Backend and Frontend sections.
-
-### Backend Configuration
-
-| Variable | Default | Description |
-|----------|---------|-------------|
-| APP_ENV | development | Environment: development or production |
-| LOG_LEVEL | INFO | Logging level: DEBUG, INFO, WARNING, ERROR |
-| DATABASE_URL | (composed) | PostgreSQL connection string |
-| SECRET_KEY | (required) | JWT signing key; use `openssl rand -base64 32` |
-| STORAGE_BACKEND | local | File storage: local or gcs |
-| GEMINI_API_KEY | (empty) | API key for AI features |
-| AI_MODEL | gemini-2.0-flash-exp | AI model name |
-| APPROVED_EMAIL_DOMAINS | atlasuniversity.edu.in | Comma-separated domains for auto-approval |
-| KEYCLOAK_* | (empty) | Keycloak URL, realm, client ID/secret if using Keycloak |
-
-### Frontend Configuration
-
-| Variable | Default | Description |
-|----------|---------|-------------|
-| NODE_ENV | development | Next.js environment mode |
-| FRONTEND_TARGET | dev | Docker build target: dev or prod |
-| NEXT_PUBLIC_API_URL | http://localhost:8000 | Backend API URL (browser) |
-| NEXT_PUBLIC_BASE_PATH | (empty) | Base path for reverse proxy |
-| NEXTAUTH_SECRET | (required) | Secret for NextAuth.js; use `openssl rand -base64 32` |
-| NEXTAUTH_URL | http://localhost:3000 | App URL for NextAuth |
-
-### Ports (optional overrides)
-
-| Variable | Default |
-|----------|---------|
-| FRONTEND_PORT | 3000 |
-| BACKEND_PORT | 8000 |
-| DB_PORT | 5432 |
-| KEYCLOAK_PORT | 8080 |
-
----
-
-## 🤖 AI Features
-
-### AI Policies (`/ai/policies`)
-
-Define business rules in natural language. The AI translates them into executable logic.
-
-- Natural language rule input  
-- Automatic translation to logical DSL  
-- Support for both logical (DSL) and natural language policies  
-- Policy hierarchy with priority ordering  
-- Conflict detection and validation  
-
-### AI Insights (`/ai/insights`)
-
-Proactive analysis and recommendations based on system data.
-
-- Automated pattern detection  
-- Anomaly identification  
-- Severity-based prioritization (Critical, Warning, Recommendation)  
-- Suggested actions with estimated impact  
-
-### AI Manager (Global Chatbot)
-
-Accessible from any page via the header (🤖 button). Opens as a centered modal with blurred backdrop.
-
-- Context-aware (knows current page)  
-- Tool execution (function calling)  
-- Markdown rendering in responses  
-- Keyboard shortcut: Enter to send  
-
----
-
-## 🛠️ Make Commands
-
-| Command | Description |
-|---------|-------------|
-| make up | Start all services |
-| make down | Stop all services |
-| make logs | View all logs |
-| make logs-be | View backend logs |
-| make logs-fe | View frontend logs |
-| make logs-keycloak | View Keycloak logs |
-| make restart-be | Restart backend |
-| make restart-fe | Restart frontend |
-| make format | Format all code |
-| make lint | Lint all code |
-| make test-be | Run backend tests |
-| make migrate-up | Apply database migrations |
-| make migrate-down | Rollback one migration |
-| make migrate-create MSG='...' | Create new migration |
-| make migrate-history | View migration history |
-| make shell-be | Open backend shell |
-| make shell-fe | Open frontend shell |
-| make shell-db | Open database shell (psql) |
-| make clean | Stop and remove volumes |
-
----
-
-## 🗄️ Database Migrations
-
-Alembic migrations manage schema. Apply them after starting the stack:
-
 ```bash
-# View current migration status
-make migrate-history
+# Format code
+cd backend && black .
+cd frontend && npm run format
 
-# Create a new migration (from repo root)
-make migrate-create MSG='add_new_table'
+# Run linter
+cd backend && flake8 .
+cd frontend && npm run lint
 
-# Apply pending migrations
-make migrate-up
-
-# Rollback one migration
-make migrate-down
+# Run tests
+cd backend && pytest
+cd frontend && npm test
 ```
 
 ---
 
-## 🔐 Authentication & Authorization
+## 🤝 Contributing
 
-### How It Works
-
-1. User clicks "Sign In" → Login page (credentials) or redirect to Keycloak if configured  
-2. Backend validates credentials → Returns JWT to frontend  
-3. Frontend stores token → NextAuth.js manages session  
-4. API calls include token → Backend validates JWT  
-5. Authorization engine checks → Rules in `authz.map.json`  
-
-### Adding Protected Endpoints
-
-In `backend/app/authz.map.json`:
-
-```json
-{
-  "/api/my-endpoint": {
-    "GET": ["ADMIN", "USER"],
-    "POST": ["ADMIN"]
-  }
-}
-```
-
-In `backend/app/public.map.json` add paths that require no auth (e.g. `/health`, `/api/auth/login`).
-
-### Adding Custom Audit Logs
-
-```python
-from app.services.audit import audit
-
-await audit.log_user_action(
-    db=db,
-    action="user.approve",
-    actor=current_user,
-    target_user_id=user_id,
-    target_user_email="john@example.com",
-)
-```
+1. **Fork** the repository
+2. **Create** feature branch: `git checkout -b feature/your-feature`
+3. **Make** changes and test locally
+4. **Commit**: `git commit -m "Add your feature"`
+5. **Push**: `git push origin feature/your-feature`
+6. **Submit** Pull Request
 
 ---
 
-## ⚠️ Common Issues
+## 📄 License
 
-| Problem | Solution |
-|---------|----------|
-| "OAuth error" or 401 when logging in | Clear cookies or use incognito; ensure NEXTAUTH_SECRET is set |
-| API returns 401 | Check Authorization header is sent; token may be expired |
-| AI features not working | Set GEMINI_API_KEY in `.env`; demo data loads without key |
-| Frontend not updating after code changes | If using FRONTEND_TARGET=prod, rebuild: `docker compose build frontend` |
-| Port already in use | Change FRONTEND_PORT / BACKEND_PORT in `.env` and restart |
+MIT License - See LICENSE file for details.
 
 ---
 
-## 🏁 Checklist for New Projects
+## 🎯 Roadmap
 
-- [ ] Clone template and rename repository  
-- [ ] Update `.env` with new secrets (especially NEXTAUTH_SECRET and SECRET_KEY)  
-- [ ] Add GEMINI_API_KEY for AI features  
-- [ ] Update branding (logo, colors, company name)  
-- [ ] Configure APPROVED_EMAIL_DOMAINS  
-- [ ] Replace demo pages (Dashboard, Settings) with real data  
-- [ ] Customize `authz.map.json` for your roles and endpoints  
-- [ ] Change default admin password  
-- [ ] Update this README for your project  
+- ✅ Core opportunity discovery
+- ✅ AI policy engine
+- ✅ AI insights & recommendations
+- ✅ AI chatbot (function calling)
+- ✅ Audit & compliance logging
+- 🔄 Mobile app (React Native)
+- 🔄 Email reminders & notifications
+- 🔄 Advanced analytics dashboard
+- 🔄 Integration marketplace
+
+---
+
+## 📞 Support
+
+**Documentation**: [README_UPFOLIO.md](README_UPFOLIO.md)  
+**API Docs**: http://localhost:8000/docs  
+**Issue Tracker**: [GitHub Issues](https://github.com/dhruvi-git/atlas-template-dhruvi/issues)
+
+---
+
+Built with ❤️ | [Live on GitHub](https://github.com/dhruvi-git/atlas-template-dhruvi)
